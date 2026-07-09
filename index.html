@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nest Agency — 한국 브랜드. 미국 D2C 매출.</title>
-<meta name="description" content="한국 브랜드의 미국 D2C 매출을 만드는 이커머스 실행 에이전시. Shopify, Amazon, 퍼포먼스 광고, CRM.">
+<title>Nest Agency — 한국 브랜드의 미국 D2C 매출</title>
+<meta name="description" content="한국 브랜드의 미국 D2C 매출을 만드는 이커머스 실행 파트너. Shopify, Amazon, 퍼포먼스 광고, CRM.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322391F'/%3E%3Cpath d='M8 38c8-20 40-20 48 0' stroke='%23F5E11E' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -42,14 +43,12 @@ body{
   background:var(--bg);
   color:var(--cream);
   overflow-x:hidden;
-  cursor:auto;
+  cursor:none;
   -webkit-font-smoothing:antialiased;
 }
-body.cursor-ready{cursor:none}
-body.cursor-ready button{cursor:none}
 ::selection{background:rgba(217,172,69,.4);color:var(--bg)}
 a{text-decoration:none;color:inherit}
-button{font:inherit;background:none;border:none;color:inherit;cursor:pointer}
+button{font:inherit;background:none;border:none;color:inherit;cursor:none}
 
 /* ── GRAIN OVERLAY ─────────────────────── */
 .grain{
@@ -193,8 +192,8 @@ nav.hidden{transform:translateY(-100%)}
 }
 .hero-word{
   position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);
-  font-family:var(--disp);font-size:clamp(64px,12vw,210px);
-  font-weight:900;letter-spacing:-.02em;text-transform:uppercase;
+  font-family:var(--disp);font-size:clamp(120px,20vw,320px);
+  font-weight:900;letter-spacing:-.04em;text-transform:uppercase;
   color:transparent;
   -webkit-text-stroke:1px rgba(241,237,218,.05);
   white-space:nowrap;user-select:none;pointer-events:none;z-index:0;
@@ -296,38 +295,71 @@ nav.hidden{transform:translateY(-100%)}
   position:relative;z-index:2;
 }
 .h-stat{
-  padding:28px clamp(20px,3vw,44px);
+  padding:30px clamp(20px,3vw,44px) 26px;
   border-right:1px solid var(--line);
-  display:flex;flex-direction:column;gap:6px;
+  display:flex;flex-direction:column;gap:10px;
+  position:relative;overflow:hidden;
   transition:background .35s;
 }
 .h-stat:last-child{border-right:none}
 .h-stat:hover{background:rgba(241,237,218,.025)}
+.h-stat::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .5s var(--e-out);
+}
+.h-stat:hover::after{transform:scaleX(1)}
 .h-stat-n{
   font-family:var(--disp);font-size:clamp(28px,3.4vw,46px);
   font-weight:800;letter-spacing:-1px;color:var(--cream);line-height:1;
+  font-variant-numeric:tabular-nums;
+  transition:color .35s;
 }
+.h-stat:hover .h-stat-n{color:var(--gold-2)}
 .h-stat-n em{font-style:normal;color:var(--gold);font-size:.6em;vertical-align:.25em}
 .h-stat-l{
-  font-size:10px;font-weight:400;letter-spacing:1px;text-transform:uppercase;
-  color:var(--dim);
+  font-size:11px;font-weight:400;letter-spacing:.2px;
+  color:var(--dim);line-height:1.6;
+  display:flex;align-items:flex-start;gap:7px;
+}
+.h-stat-l::before{
+  content:'';width:4px;height:4px;border-radius:50%;
+  background:var(--moss);flex-shrink:0;margin-top:6px;
 }
 
-/* ── MARQUEE ───────────────────────────── */
-.mq{
+/* ── CHANNEL TICKER (scramble rotation) ── */
+.chs{
   background:var(--bg1);
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:16px 0;overflow:hidden;position:relative;
+  padding:22px clamp(24px,4.5vw,64px);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  position:relative;overflow:hidden;
 }
-.mq-t{display:flex;width:max-content;will-change:transform}
-.mqi{
-  display:flex;align-items:center;gap:30px;padding:0 30px;
-  font-family:var(--disp);font-size:14px;font-weight:600;
-  letter-spacing:2px;text-transform:uppercase;white-space:nowrap;
-  color:var(--dim);
+.chs-eb{
+  font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--dim-2);flex-shrink:0;
 }
-.mqi.gold{color:var(--gold)}
-.mq-dot{width:4px;height:4px;background:var(--moss);border-radius:50%;flex-shrink:0}
+.chs-word{
+  font-family:var(--disp);font-size:clamp(16px,2.2vw,24px);font-weight:800;
+  letter-spacing:2px;text-transform:uppercase;color:var(--gold);
+  white-space:nowrap;text-align:center;flex:1;
+  font-variant-numeric:tabular-nums;
+}
+.chs-n{
+  font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:2px;
+  color:var(--dim);flex-shrink:0;font-variant-numeric:tabular-nums;
+}
+.chs-n b{color:var(--gold);font-weight:800}
+.chs-bar{
+  position:absolute;bottom:0;left:0;height:2px;width:0%;
+  background:var(--gold);
+}
+@media(max-width:700px){
+  .chs{flex-wrap:wrap;justify-content:center;text-align:center;row-gap:10px}
+  .chs-eb{flex:0 0 100%;order:1}
+  .chs-word{order:2;white-space:normal;font-size:clamp(14px,4.2vw,18px);line-height:1.35}
+  .chs-n{order:3;flex:0 0 100%}
+}
 
 /* ── STORY (scroll-driven) ─────────────── */
 .story{position:relative;height:480vh;background:transparent}
@@ -476,7 +508,7 @@ nav.hidden{transform:translateY(-100%)}
 .prob-d b{color:var(--cream);font-weight:500}
 
 /* ── TIERS (3D tilt) ───────────────────── */
-.tiers{background:var(--bg1)}
+.tiers{background:var(--bg1);padding-bottom:28px}
 .tier-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
   perspective:1600px;
@@ -536,6 +568,15 @@ nav.hidden{transform:translateY(-100%)}
   clip-path:polygon(14% 44%,0 60%,40% 100%,100% 16%,84% 0,40% 68%);
   opacity:.85;
 }
+.tier-list li.note{
+  color:var(--gold);font-weight:500;
+  padding-top:11px;margin-top:2px;border-top:1px dashed var(--line-2);
+}
+.tier-list li.note::before{
+  content:'+';background:none;clip-path:none;
+  font-family:var(--disp);font-weight:800;font-size:15px;line-height:1;
+  color:var(--gold);opacity:1;width:14px;
+}
 .tier-cta{
   display:inline-flex;align-items:center;gap:8px;
   font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
@@ -548,7 +589,7 @@ nav.hidden{transform:translateY(-100%)}
 .tier.feat .tier-cta:hover{background:var(--gold-2)}
 
 /* ── PROOF (count-up) ──────────────────── */
-.proof{background:var(--bg)}
+.proof{background:var(--bg);padding-top:0}
 .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
 .pf{
   padding:clamp(36px,4vw,60px) clamp(24px,3vw,44px);
@@ -619,7 +660,18 @@ nav.hidden{transform:translateY(-100%)}
 
 /* ── ONBOARD (interactive timeline) ────── */
 .onb{background:var(--bg1)}
-.onb-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.onb-tabs{display:flex;justify-content:center;gap:10px;margin-bottom:44px;flex-wrap:wrap}
+.onb-tab{
+  font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--dim);padding:11px 22px;border:1px solid var(--line);border-radius:100px;
+  transition:color .25s,background .25s,border-color .25s;
+  cursor:none;
+}
+.onb-tab:hover{color:var(--cream);border-color:var(--line-2)}
+.onb-tab.active{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.onb-panel{display:none}
+.onb-panel.active{display:block}
+.onb-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
 .step{
   position:relative;background:var(--bg2);
   border:1px solid var(--line);border-radius:16px;
@@ -646,6 +698,18 @@ nav.hidden{transform:translateY(-100%)}
   transition:color .4s;
 }
 .step:hover .step-bign{color:rgba(217,172,69,.09)}
+.onb-after{
+  position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:16px;
+  padding:30px 28px 34px;
+}
+.after-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:18px}
+.after-card{position:relative}
+.after-card:first-child{border-right:1px solid var(--line);padding-right:28px}
+.after-t{
+  font-family:var(--disp);font-size:19px;font-weight:700;letter-spacing:-.4px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px;
+}
+.after-d{font-size:12px;font-weight:300;color:var(--dim);line-height:1.75}
 /* connective line */
 .onb-line{
   height:1px;background:var(--line);margin:0 8% 34px;position:relative;
@@ -657,7 +721,9 @@ nav.hidden{transform:translateY(-100%)}
 .onb.in .onb-line i{width:100%}
 
 /* ── FOUNDER ───────────────────────────── */
-.founder{background:var(--bg)}
+.founder{background:var(--bg);position:relative;overflow:hidden}
+.nest-stamp{position:absolute;pointer-events:none;user-select:none;opacity:.1;z-index:1}
+.nest-stamp img{display:block;width:100%;height:100%;object-fit:contain}
 .fd-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,6vw,100px);align-items:start}
 .fd-quote{
   font-family:var(--disp);font-size:clamp(19px,2.1vw,27px);font-weight:400;
@@ -665,7 +731,7 @@ nav.hidden{transform:translateY(-100%)}
   border-left:2px solid var(--gold);padding-left:26px;margin-top:38px;
 }
 .role{
-  display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:center;
+  display:grid;grid-template-columns:1fr;gap:20px;align-items:center;
   padding:22px 26px;background:var(--bg1);
   border:1px solid var(--line);border-radius:14px;margin-bottom:10px;
   transition:border-color .35s,transform .4s var(--e-out);
@@ -673,11 +739,6 @@ nav.hidden{transform:translateY(-100%)}
 }
 .role:hover{border-color:var(--line-2);transform:translateX(6px)}
 .role.now{border-color:rgba(217,172,69,.4);background:rgba(217,172,69,.05)}
-.role-y{
-  font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:1px;
-  text-transform:uppercase;color:var(--dim);
-}
-.role.now .role-y{color:var(--gold)}
 .role-c{
   font-family:var(--disp);font-size:19px;font-weight:700;letter-spacing:-.3px;
   text-transform:uppercase;color:var(--cream);margin-bottom:4px;
@@ -715,6 +776,52 @@ nav.hidden{transform:translateY(-100%)}
 }
 .fcta-btns{display:flex;gap:16px;justify-content:center;align-items:center;position:relative;z-index:1;flex-wrap:wrap}
 
+/* ── CONTACT FORM ── */
+.cform{
+  position:relative;z-index:1;
+  max-width:560px;margin:0 auto;text-align:left;
+}
+.cform-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.cform-field{display:flex;flex-direction:column;gap:7px}
+.cform-field.full{grid-column:1/-1}
+.cform label{
+  font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--dim);
+}
+.cform input,.cform select,.cform textarea{
+  width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:10px;
+  padding:13px 15px;color:var(--cream);font-family:var(--body);font-size:13px;
+  transition:border-color .25s,background .25s;
+}
+.cform select{cursor:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7l5 5 5-5' stroke='%23D9AC45' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;
+}
+.cform textarea{resize:vertical;min-height:88px;font-family:var(--body)}
+.cform input::placeholder,.cform textarea::placeholder{color:var(--dim-2)}
+.cform input:focus,.cform select:focus,.cform textarea:focus{
+  outline:none;border-color:var(--gold);background:var(--bg3);
+}
+.cform-submit{
+  width:100%;margin-top:6px;
+  font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--bg);background:var(--gold);
+  padding:16px 26px;border-radius:100px;text-align:center;
+  transition:background .25s,transform .25s var(--e-out);
+  cursor:none;
+}
+.cform-submit:hover{background:var(--gold-2)}
+.cform-submit:disabled{opacity:.6;cursor:none}
+.cform-note{
+  font-size:11px;font-weight:300;color:var(--dim);text-align:center;margin-top:16px;
+}
+.cform-note a{color:var(--gold);text-decoration:underline;text-underline-offset:2px}
+.cform-status{
+  text-align:center;font-size:13px;color:var(--gold);margin-top:16px;
+  display:none;
+}
+.cform-status.show{display:block}
+.cform.sent .cform-fields{display:none}
 /* ── FOOTER ────────────────────────────── */
 footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px}
 .f-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px}
@@ -744,6 +851,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 
 /* ── RESPONSIVE ────────────────────────── */
 @media(max-width:980px){
+  .nest-stamp{display:none}
   .nlinks{display:none}
   .h-stats{grid-template-columns:1fr 1fr}
   .h-stat:nth-child(2){border-right:none}
@@ -754,16 +862,18 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
   .pf:nth-child(2){border-right:none}
   .pf{border-bottom:1px solid var(--line)}
   .pt-grid,.fd-grid{grid-template-columns:1fr}
-  .onb-steps{grid-template-columns:1fr 1fr}
+  .onb-steps{grid-template-columns:1fr}
+  .after-grid{grid-template-columns:1fr}
+  .after-card:first-child{border-right:none;padding-right:0;border-bottom:1px solid var(--line);padding-bottom:20px}
   .f-grid{grid-template-columns:1fr 1fr;gap:36px}
   .story{height:420vh}
   .blast{height:360vh}
 }
 @media(max-width:560px){
-  .onb-steps{grid-template-columns:1fr}
   .proof-grid{grid-template-columns:1fr}
   .pf{border-right:none}
   .h-stats{grid-template-columns:1fr 1fr}
+  .cform-row{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
@@ -830,38 +940,6 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 .eb::before{transform:scaleX(0);transform-origin:left;transition:transform .9s var(--e-out) .15s}
 .eb.in::before,.story-stick.on .story-eb::before{transform:scaleX(1)}
 
-/* ── DEPARTURE BOARD ── */
-.dep{background:var(--bg1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(70px,9vw,120px) 0;position:relative;overflow:hidden}
-.dep-fly{width:min(680px,92%);margin:0 auto 54px;position:relative}
-.dep-fly svg{width:100%;overflow:visible}
-.dep-city{font-family:var(--disp);font-size:13px;font-weight:800;letter-spacing:2px;fill:var(--cream)}
-.dep-city-s{font-size:9px;font-weight:400;letter-spacing:2px;fill:var(--dim);text-transform:uppercase}
-.dep-path{fill:none;stroke:rgba(217,172,69,.45);stroke-width:1.5;stroke-dasharray:6 8}
-.dep-dot-c{fill:var(--gold)}
-.dep-plane{fill:var(--gold)}
-.dep-board{max-width:900px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
-.dep-hd{
-  display:grid;grid-template-columns:110px 1fr 130px;gap:12px;
-  font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
-  color:var(--dim-2);padding:0 18px 12px;
-}
-.dep-row{
-  display:grid;grid-template-columns:110px 1fr 130px;gap:12px;align-items:center;
-  background:var(--bg2);border:1px solid var(--line);border-radius:10px;
-  padding:15px 18px;margin-bottom:8px;
-  transition:border-color .3s,transform .35s var(--e-out);
-}
-.dep-row:hover{border-color:var(--line-2);transform:translateX(6px)}
-.dep-cell{
-  font-family:var(--disp);font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  font-size:clamp(14px,1.8vw,20px);color:var(--cream);white-space:nowrap;
-}
-.dep-cell.rt{color:var(--gold)}
-.dep-cell.st{font-size:clamp(11px,1.3vw,14px);letter-spacing:2px}
-.dep-cell.st.ok{color:var(--moss)}
-.dep-cell.st.bd{color:var(--gold);animation:blink 1.6s step-end infinite}
-@keyframes blink{0%,70%{opacity:1}71%,100%{opacity:.35}}
-
 /* ── SIDE DOTS NAV ── */
 .sdots{
   position:fixed;right:26px;top:50%;transform:translateY(-50%);
@@ -915,7 +993,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 .f-status{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);margin-top:6px}
 
 
-/* ── BUILD-IN TEXT (우리가 만듭니다) ───── */
+/* ── BUILD-IN TEXT (NEST가 만듭니다) ───── */
 .hbuild{
   position:relative;display:inline-block;white-space:nowrap;
   cursor:none;
@@ -1045,7 +1123,6 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 <div class="sdots" id="sdots">
   <a class="sdot" href="#hero" data-sec="hero" data-c><span class="tip">홈</span></a>
   <a class="sdot" href="#story" data-sec="story" data-c><span class="tip">스토리</span></a>
-  <a class="sdot" href="#dep" data-sec="dep" data-c><span class="tip">노선</span></a>
   <a class="sdot" href="#problems" data-sec="problems" data-c><span class="tip">문제 정의</span></a>
   <a class="sdot" href="#tiers" data-sec="tiers" data-c><span class="tip">서비스 플랜</span></a>
   <a class="sdot" href="#services" data-sec="services" data-c><span class="tip">운영 범위</span></a>
@@ -1056,12 +1133,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 <nav id="nav">
   <a class="nlogo" href="#" data-c>
     <span class="nl-mark">
-      <svg viewBox="0 0 26 26" fill="none">
-        <path d="M3 16c1.6-3.4 5.2-5.6 10-5.6s8.4 2.2 10 5.6" stroke="#D9AC45" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M4.5 18.5c1.8-2.6 4.9-4.1 8.5-4.1s6.7 1.5 8.5 4.1" stroke="#D9AC45" stroke-width="1.3" stroke-linecap="round" opacity=".6"/>
-        <path d="M2 21c2.2-1.9 6-3 11-3s8.8 1.1 11 3" stroke="#D9AC45" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="13" cy="9" r="2.3" fill="#D9AC45"/>
-      </svg>
+      <img src="nest-logo.png" alt="Nest" style="width:100%;height:100%;object-fit:contain">
     </span>
     Nest <em>에이전시</em>
   </a>
@@ -1071,51 +1143,64 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
     <li><a href="#services" data-c>운영 범위</a></li>
     <li><a href="#founder" data-c>창업자</a></li>
   </ul>
-  <a class="nbtn" href="mailto:david@nestagency.co" data-c data-mag>문의하기</a>
+  <a class="nbtn" href="#fcta" data-c data-mag>문의하기</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="hero">
+  <div class="nest-stamp" style="top:96px;right:clamp(16px,4vw,56px);width:150px;height:143px;transform:rotate(8deg)" aria-hidden="true"><img src="nest-logo.png" alt=""></div>
   <div class="hero-glow" id="heroGlow"></div>
-  <div class="hero-word" id="heroWord">NEST AGENCY</div>
+  <div class="hero-word" id="heroWord">NEST</div>
   <div class="hero-inner">
-    <p class="h-eyebrow" id="hEb">nestagency.co · Irvine, CA · 2026년 설립 예정</p>
+    <p class="h-eyebrow" id="hEb">당신 브랜드의 둥지, 미국에 짓습니다</p>
     <h1 class="h1" id="h1">
       <span class="hword" data-d="0"><span>한국</span></span>
-      <span class="hword" data-d="70"><span>브랜드.</span></span><br>
+      <span class="hword" data-d="70"><span>브랜드의</span></span><br>
       <span class="hword accent" data-d="170"><span>미국</span></span>
       <span class="hword accent" data-d="240"><span>D2C</span></span>
-      <span class="hword accent" data-d="310"><span>매출.</span></span><br>
-      <span class="hbuild" id="hBuild" data-c aria-label="우리가 만듭니다."><span class="bslot" style="--i:0"><i class="bch">우</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:1"><i class="bch">리</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:2"><i class="bch">가</i><b class="bx"></b><u class="bp"></u></span><span class="bslot sp" style="--i:3"><i class="bch">&nbsp;</i></span><span class="bslot" style="--i:4"><i class="bch">만</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:5"><i class="bch">듭</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:6"><i class="bch">니</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:7"><i class="bch">다</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:8"><i class="bch gd">.</i><b class="bx"></b><u class="bp"></u></span></span>
+      <span class="hword accent" data-d="310"><span>매출,</span></span><br>
+      <span class="hbuild" id="hBuild" data-c aria-label="NEST가 만듭니다."><span class="bslot" style="--i:0"><i class="bch">N</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:1"><i class="bch">E</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:2"><i class="bch">S</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:3"><i class="bch">T</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:4"><i class="bch">가</i><b class="bx"></b><u class="bp"></u></span><span class="bslot sp" style="--i:5"><i class="bch">&nbsp;</i></span><span class="bslot" style="--i:6"><i class="bch">만</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:7"><i class="bch">듭</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:8"><i class="bch">니</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:9"><i class="bch">다</i><b class="bx"></b><u class="bp"></u></span><span class="bslot" style="--i:10"><i class="bch gd">.</i><b class="bx"></b><u class="bp"></u></span></span>
     </h1>
     <div class="h-row">
-      <p class="h-desc" id="hDesc">브랜드를 만들지 않습니다. <strong>한국 브랜드의 미국 D2C 매출을 만드는 이커머스 인프라</strong>를 구축합니다 — Shopify, Amazon, 퍼포먼스 광고, CRM까지.</p>
+      <p class="h-desc" id="hDesc">브랜드는 이미 만들어져 있습니다. NEST는 그 브랜드가 미국에서 실제로 팔리도록 <strong>이커머스 인프라</strong>를 구축합니다 — Shopify, Amazon, 퍼포먼스 광고, CRM까지.</p>
       <div class="h-ctas" id="hCtas">
         <a class="mbtn" href="#tiers" data-c data-mag><span class="fill"></span><span>서비스 보기</span><i>→</i></a>
         <a class="gbtn" href="#problems" data-c>왜 Nest인가</a>
       </div>
     </div>
   </div>
+  <div class="h-stats">
+    <div class="h-stat" data-c>
+      <div class="h-stat-n"><span data-count="3">0</span><em>tiers</em></div>
+      <div class="h-stat-l">서비스 티어 — $0에서 $100K+/mo까지</div>
+    </div>
+    <div class="h-stat" data-c>
+      <div class="h-stat-n"><span data-count="16">0</span><em>+</em></div>
+      <div class="h-stat-l">운영 채널 — Shopify부터 KakaoTalk까지</div>
+    </div>
+    <div class="h-stat" data-c>
+      <div class="h-stat-n"><span data-count="2">0</span><em>language &amp; culture</em></div>
+      <div class="h-stat-l">모든 리포트 한국어 + 영어</div>
+    </div>
+    <div class="h-stat" data-c>
+      <div class="h-stat-n">$<span data-count="0">0</span></div>
+      <div class="h-stat-l">별도 셋업비 — 리테이너에 포함</div>
+    </div>
+  </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="mq" id="mq">
-  <div class="mq-t" id="mqT">
-    <div class="mqi">Shopify DTC</div><div class="mqi"><span class="mq-dot"></span></div>
-    <div class="mqi gold">Amazon FBA</div><div class="mqi"><span class="mq-dot"></span></div>
-    <div class="mqi">Meta &amp; Google Ads</div><div class="mqi"><span class="mq-dot"></span></div>
-    <div class="mqi gold">Klaviyo CRM</div><div class="mqi"><span class="mq-dot"></span></div>
-    <div class="mqi">한/영 리포팅</div><div class="mqi"><span class="mq-dot"></span></div>
-    <div class="mqi gold">TikTok Shop</div><div class="mqi"><span class="mq-dot"></span></div>
-    <div class="mqi">키즈 IP부터 K-pop 엔터까지</div><div class="mqi"><span class="mq-dot"></span></div>
-    <div class="mqi gold">K-뷰티 · 가구 · 식품 · 라이프스타일</div><div class="mqi"><span class="mq-dot"></span></div>
-  </div>
+<!-- CHANNEL TICKER -->
+<div class="chs" id="chs">
+  <span class="chs-eb">NEST가 다루는 채널</span>
+  <span class="chs-word" id="chsWord">SHOPIFY DTC</span>
+  <span class="chs-n"><b id="chsIdx">01</b> / <span id="chsTotal">08</span></span>
+  <span class="chs-bar" id="chsBar"></span>
 </div>
 
 <!-- SCROLL STORY -->
 <section class="story" id="story">
   <div class="story-stick" id="storyStick">
-    <div class="story-eb">우리는 누구인가</div>
+    <div class="story-eb">미국 D2C 매출</div>
     <div>
       <div class="sline" data-i="0">
         <span class="sline-t">미국 시장을 겨냥하는</span>
@@ -1134,7 +1219,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
       </div>
       <div class="sline" data-i="4">
         <span class="sline-t dm">어렵게 셋업해도</span>
-        <span class="sline-t rd">매출 전환이 안 됩니다.</span>
+        <span class="sline-t rd">매출로 이어지지 않습니다.</span>
       </div>
     </div>
     <div class="story-prog"><i id="storyBar"></i></div>
@@ -1148,8 +1233,8 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
     <canvas id="constCv"></canvas>
     <div class="blast-glow" id="blastGlow"></div>
     <div class="blast-core">
-      <div class="blast-eb">D2C 툴과 채널</div>
-      <div class="blast-h" id="blastH">TOOLS &amp;<br>CHANNELS</div>
+      <div class="blast-eb">NEST가 운영하는 채널</div>
+      <div class="blast-h" id="blastH">ALL<br>CHANNELS</div>
     </div>
     <div id="blastTags">
       <div class="btag big" data-x="-40" data-y="-36" data-r="-12">Shopify DTC</div>
@@ -1168,51 +1253,6 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
       <div class="btag" data-x="-28" data-y="56" data-r="-13">Sponsored Ads</div>
       <div class="btag" data-x="26" data-y="-58" data-r="9">SMS 자동화</div>
       <div class="btag" data-x="-64" data-y="22" data-r="-3">KakaoTalk Ads</div>
-    </div>
-  </div>
-</section>
-
-<!-- DEPARTURE BOARD -->
-<section class="dep" id="dep">
-  <div class="dep-fly" aria-hidden="true">
-    <svg viewBox="0 0 680 150">
-      <path class="dep-path" id="depPath" d="M60,110 C220,10 460,10 620,110"/>
-      <circle class="dep-dot-c" cx="60" cy="110" r="5"/>
-      <circle class="dep-dot-c" cx="620" cy="110" r="5"/>
-      <text class="dep-city" x="60" y="134" text-anchor="middle">SEOUL</text>
-      <text class="dep-city-s" x="60" y="147" text-anchor="middle">ICN · 검증된 제품</text>
-      <text class="dep-city" x="620" y="134" text-anchor="middle">LOS ANGELES</text>
-      <text class="dep-city-s" x="620" y="147" text-anchor="middle">LAX · D2C 매출</text>
-      <g class="dep-plane">
-        <circle r="4">
-          <animateMotion dur="5s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#depPath"/>
-          </animateMotion>
-        </circle>
-      </g>
-    </svg>
-  </div>
-  <div class="dep-board" id="depBoard">
-    <div class="dep-hd"><span>노선</span><span>카테고리</span><span>상태</span></div>
-    <div class="dep-row">
-      <span class="dep-cell rt" data-final="ICN→LAX">ICN→LAX</span>
-      <span class="dep-cell" data-final="K-뷰티">K-뷰티</span>
-      <span class="dep-cell st bd" data-final="BOARDING">BOARDING</span>
-    </div>
-    <div class="dep-row">
-      <span class="dep-cell rt" data-final="ICN→JFK">ICN→JFK</span>
-      <span class="dep-cell" data-final="가구 · 리빙">가구 · 리빙</span>
-      <span class="dep-cell st ok" data-final="ON TIME">ON TIME</span>
-    </div>
-    <div class="dep-row">
-      <span class="dep-cell rt" data-final="ICN→DFW">ICN→DFW</span>
-      <span class="dep-cell" data-final="식품 · F&B">식품 · F&B</span>
-      <span class="dep-cell st bd" data-final="BOARDING">BOARDING</span>
-    </div>
-    <div class="dep-row">
-      <span class="dep-cell rt" data-final="ICN→SFO">ICN→SFO</span>
-      <span class="dep-cell" data-final="라이프스타일">라이프스타일</span>
-      <span class="dep-cell st ok" data-final="ON TIME">ON TIME</span>
     </div>
   </div>
 </section>
@@ -1243,22 +1283,22 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
       <div class="prob rv" data-c>
         <div class="prob-n">01</div>
         <h3 class="prob-t">이커머스 인프라 부재</h3>
-        <p class="prob-d">Shopify를 켜긴 했지만 <b>기본 기능만 씁니다.</b> 사업 확장이나 법적 리스크 대응에 필요한 툴을 붙일 개발 리소스가 없습니다. 스토어는 있는데, 성장할 준비는 안 되어 있습니다.</p>
+        <p class="prob-d">Shopify 스토어가 아예 없거나, 있어도 <b>전환 추적이 안 됩니다.</b> 픽셀 스택도, 미국 소비자에 맞춘 체크아웃 최적화도 없는 상태. 첫 주문이 들어오기도 전에 이미 매출을 놓치고 있는 셈입니다.</p>
       </div>
       <div class="prob rv d1" data-c>
         <div class="prob-n">02</div>
-        <h3 class="prob-t">Amazon 캐치업 실패</h3>
-        <p class="prob-d">기본 광고 외에도 <b>브랜드 레지스트리, A+ 콘텐츠, DSP</b> 등 프로그램은 계속 늘어납니다. 현지에 운영 리소스가 없으면 재고 계획도, 사업 확장도 손이 닿지 않습니다.</p>
+        <h3 class="prob-t">Amazon 진입 장벽</h3>
+        <p class="prob-d">FBA를 원하지만 <b>어디서부터 시작해야 할지 모릅니다.</b> 브랜드 레지스트리, A+ 콘텐츠, Sponsored Ads — 전부 방치 상태. 매달 지연될수록 시장 점유율을 잃고 있습니다.</p>
       </div>
       <div class="prob rv d2" data-c>
         <div class="prob-n">03</div>
         <h3 class="prob-t">ROAS 추적 없는 광고</h3>
-        <p class="prob-d">광고비는 나가는데 <b>트래킹 설정이 틀려 있습니다.</b> 어떤 채널, 어떤 전략이 실제 성장에 기여하는지 아무도 모릅니다. 돈은 돌지만, 판단할 근거가 없습니다.</p>
+        <p class="prob-d">광고비는 쓰는데 <b>어떤 광고가 매출로 이어졌는지 알 수 없습니다.</b> GA4 세팅 오류, Meta CAPI 미설치. 태그는 모든 페이지에 붙어 있지만 정작 아무것도 제대로 잡아내지 못합니다. 예산은 소진되고, 남는 데이터는 없습니다.</p>
       </div>
       <div class="prob rv d3" data-c>
         <div class="prob-n">04</div>
-        <h3 class="prob-t">본사-현지 소통 단절</h3>
-        <p class="prob-d">본사와 미국 법인 사이엔 <b>맥락이 사라진 숫자</b>만 오갑니다. 왜 그 결과가 나왔는지는 전달되지 않고, 결정은 느려집니다. 본사와 미국 법인 양쪽을 직접 운영해본 경험으로 압니다 — 필요한 건 번역이 아니라 같은 시선입니다.</p>
+        <h3 class="prob-t">본사 보고 공백</h3>
+        <p class="prob-d">한국 본사는 <b>영어 이커머스 리포트</b>가 필요합니다. 미국 쪽엔 작성할 사람이 없습니다. 성과는 불투명하고 — 예산은 늘지 않습니다. 팝업이 끝나면, 남는 매출이 없습니다.</p>
       </div>
     </div>
   </div>
@@ -1276,34 +1316,40 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
       <div class="tier rv" data-tilt data-c>
         <div class="tier-shine"></div>
         <div class="tier-badge">스타터</div>
-        <div class="tier-price">$<span class="odo" data-odo="3,500">3,500</span><small>/월</small></div>
+        <div class="tier-price">$<span class="odo" data-odo="3,000">3,000</span><small>/월</small></div>
         <div class="tier-name">런치패드</div>
-        <p class="tier-desc">미국 이커머스 기반 구축. 최소 6개월 약정. $0 → $15K/mo를 목표로 하는 브랜드.</p>
+        <p class="tier-desc">미국 이커머스 기반 구축. $0 → $20K/mo를 목표로 하는 브랜드.</p>
         <div class="tier-hr"></div>
         <ul class="tier-list">
-          <li>Shopify 풀셋업 + 일간 운영 — 법적 문서(개인정보처리방침, 이용약관, 환불정책 등) 포함</li>
-          <li>퍼포먼스 트래킹 셋업 — 광고 전환이 새지 않도록 처음부터 정확하게</li>
-          <li>가장 필요한 기본 광고 채널 2개 운영</li>
-          <li>월간 KPI + 인사이트 리포트 — 한국어 + 영어</li>
+          <li>Shopify 풀셋업 + 일간 운영</li>
+          <li>법적 문서 셋업 — 개인정보처리방침, 이용약관, 환불정책, 쿠키동의</li>
+          <li>GA4 + Meta Pixel + CAPI + Google Tag</li>
+          <li>Meta 광고 (Facebook / Instagram)</li>
+          <li>Google 광고 (Search / Shopping / PMAX)</li>
+          <li>월간 KPI 리포트 — 한국어 + 영어</li>
+          <li class="note">브랜드 상황에 맞춘 맞춤 스코프 협의 가능</li>
         </ul>
-        <a class="tier-cta" href="mailto:david@nestagency.co" data-c>시작하기 →</a>
+        <a class="tier-cta" href="#fcta" data-c>시작하기 →</a>
       </div>
 
       <div class="tier feat rv d1" data-tilt data-c>
         <div class="tier-shine"></div>
         <div class="tier-badge"><span class="pulse"></span>그로스 — 추천</div>
-        <div class="tier-price">$<span class="odo" data-odo="6,500">6,500</span><small>/월</small></div>
+        <div class="tier-price">$<span class="odo" data-odo="6,000">6,000</span><small>/월</small></div>
         <div class="tier-name">스케일러</div>
-        <p class="tier-desc">채널 확장 + 매출 가속. 최소 6개월 약정. $15K → $80K/mo를 목표로 하는 브랜드.</p>
+        <p class="tier-desc">채널 확장 + 매출 가속. $20K → $100K/mo를 목표로 하는 브랜드.</p>
         <div class="tier-hr"></div>
         <ul class="tier-list">
           <li>스타터 전체 포함</li>
-          <li>Amazon FBA 등 미국 D2C 플랫폼 1~2개 추가 입점 — 브랜드 레지스트리, A+ 콘텐츠, Sponsored Ads 포함</li>
-          <li>광고 채널 3~5개로 확장 — TikTok, Reddit 등</li>
-          <li>CRM 기반 마케팅 셋업 + 운영 — Klaviyo 이메일, Okendo 리뷰 관리 등</li>
+          <li>Amazon FBA 셋업 + 일간 운영</li>
+          <li>브랜드 레지스트리, A+ 콘텐츠, Sponsored Ads</li>
+          <li>TikTok 광고 + TikTok Shop</li>
+          <li>Instagram Shop + Facebook Shop</li>
+          <li>Klaviyo 이메일 플로우 + SMS 셋업</li>
           <li>주간 슬랙 업데이트 + 격주 전략 콜</li>
+          <li class="note">브랜드 상황에 맞춘 맞춤 스코프 협의 가능</li>
         </ul>
-        <a class="tier-cta" href="mailto:david@nestagency.co" data-c>시작하기 →</a>
+        <a class="tier-cta" href="#fcta" data-c>시작하기 →</a>
       </div>
 
       <div class="tier rv d2" data-tilt data-c>
@@ -1311,18 +1357,19 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
         <div class="tier-badge">스케일</div>
         <div class="tier-price">$<span class="odo" data-odo="12">12</span>K<small>+/월</small></div>
         <div class="tier-name">옵티마이저</div>
-        <p class="tier-desc">풀스택 운영 + 전담 리소스. 스코프 커스텀. $80K+/mo 브랜드의 시장 확장.</p>
+        <p class="tier-desc">풀스택 운영 + 전담 리소스. 스코프 커스텀. $100K+/mo 브랜드의 시장 확장.</p>
         <div class="tier-hr"></div>
         <ul class="tier-list">
-          <li><strong style="color:var(--gold);font-weight:600">전담 운영 스페셜리스트 배정</strong> — 브랜드 전담으로 매일 함께 운영</li>
           <li>그로스 전체 포함</li>
           <li>YouTube 광고 + 프로그래매틱</li>
           <li>어필리에이트 / 인플루언서 트래킹</li>
-          <li>Online → Offline 연계 사업 지원 — 팝업, 리테일 입점 등</li>
+          <li>Faire 도매 입점 지원</li>
           <li>멀티 마켓플레이스 운영</li>
+          <li>전담 운영 담당자 배정</li>
           <li>주간 전략 미팅 + 본사 전용 리포팅</li>
+          <li class="note">브랜드 상황에 맞춘 맞춤 스코프 협의 가능</li>
         </ul>
-        <a class="tier-cta" href="mailto:david@nestagency.co" data-c>커스텀 견적 →</a>
+        <a class="tier-cta" href="#fcta" data-c>커스텀 견적 →</a>
       </div>
 
     </div>
@@ -1359,7 +1406,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
     <div class="hs-head">
       <div>
         <p class="eb">운영 범위</p>
-        <h2 class="h2">우리가 하는 것.<br><em>안 하는 것.</em></h2>
+        <h2 class="h2">NEST가 하는 것.<br><em>안 하는 것.</em></h2>
       </div>
     </div>
     <div class="hs-track" id="hsTrack">
@@ -1429,6 +1476,18 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
           <li>팝업 · 오프라인 이벤트</li>
         </ul>
       </div>
+      <div class="hcard no" data-c>
+        <div class="hc-eb">We Refer</div>
+        <h3 class="hc-t">물류 운영</h3>
+        <p class="hc-d">창고, 배송, 재고 관리 — 브랜드 단계에 맞는 풀필먼트 파트너로 연결합니다.</p>
+        <ul class="hc-list">
+          <li>3PL / 풀필먼트 센터 매칭</li>
+          <li>Amazon FBA/MCF 연동 지원</li>
+          <li>재고 보관 · 피킹 · 패킹</li>
+          <li>수출입 통관</li>
+          <li>배송 추적 연동</li>
+        </ul>
+      </div>
     </div>
     <div class="hs-prog"><i id="hsBar"></i></div>
   </div>
@@ -1443,50 +1502,135 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
       <p class="eb rv" style="justify-content:center">운영 방식</p>
       <h2 class="h2 rv d1">첫 통화부터 <span class="gd">실매출</span>까지<br><em>4주면 됩니다.</em></h2>
     </div>
+
+    <div class="onb-tabs rv d2">
+      <button class="onb-tab active" data-tier="starter" type="button" data-c>런치패드</button>
+      <button class="onb-tab" data-tier="growth" type="button" data-c>스케일러</button>
+      <button class="onb-tab" data-tier="scale" type="button" data-c>옵티마이저</button>
+    </div>
+
     <div class="onb-line rv"><i></i></div>
-    <div class="onb-steps">
-      <div class="step rv" data-c>
-        <div class="step-bign">1</div>
-        <span class="step-week">1주차</span>
-        <h3 class="step-t">디스커버리 콜</h3>
-        <p class="step-d">30분. 자료 없이. 채널 현황, 제품, 목표, 재고 상황 파악. 솔직한 대화 먼저.</p>
+
+    <div class="onb-panel active" data-panel="starter">
+      <div class="onb-steps">
+        <div class="step rv" data-c>
+          <div class="step-bign">1</div>
+          <span class="step-week">1주차</span>
+          <h3 class="step-t">디스커버리 콜</h3>
+          <p class="step-d">30분. 자료 없이. 채널 현황, 제품, 목표, 재고 상황 파악. 솔직한 대화 먼저.</p>
+        </div>
+        <div class="step rv d1" data-c>
+          <div class="step-bign">2</div>
+          <span class="step-week">2주차</span>
+          <h3 class="step-t">스코프 + 계약</h3>
+          <p class="step-d">스코프 제안서 + SOW 체결. 실제로 필요한 것만 — 단계에 안 맞는 업셀 없음.</p>
+        </div>
+        <div class="step rv d2" data-c>
+          <div class="step-bign">3</div>
+          <span class="step-week">3–4주차</span>
+          <h3 class="step-t">런칭 스프린트</h3>
+          <p class="step-d">Shopify 셋업, 픽셀 + CAPI, 법적 문서, 광고 계정 구축 — 4주차에 풀스택 라이브.</p>
+        </div>
       </div>
-      <div class="step rv d1" data-c>
-        <div class="step-bign">2</div>
-        <span class="step-week">2주차</span>
-        <h3 class="step-t">스코프 + 계약</h3>
-        <p class="step-d">스코프 제안서 + SOW 체결. 실제로 필요한 것만 — 단계에 안 맞는 업셀 없음.</p>
-      </div>
-      <div class="step rv d2" data-c>
-        <div class="step-bign">3</div>
-        <span class="step-week">3–4주차</span>
-        <h3 class="step-t">런칭 스프린트</h3>
-        <p class="step-d">계정, 픽셀, 리스팅, 법적 문서, CRM 플로우, 광고 계정 구축 — 4주차에 풀스택 라이브.</p>
-      </div>
-      <div class="step rv d3" data-c>
-        <div class="step-bign">4</div>
-        <span class="step-week">5–6주차</span>
-        <h3 class="step-t">최적화 셋업</h3>
-        <p class="step-d">초기 데이터 기반 전환 추적 검증, 광고 구조 최적화, CRM 플로우 튜닝.</p>
-      </div>
-      <div class="step rv d4" data-c>
-        <div class="step-bign">∞</div>
-        <span class="step-week">2개월 이후</span>
-        <h3 class="step-t">정규 운영</h3>
-        <p class="step-d">주간 슬랙 + 격주 콜 + 월간 KPI 리포트 한/영. 광고, 크리에이티브, CRM 플로우는 끝없이 테스트하고 최적화합니다. 우리가 운영하고, 브랜드는 성장합니다.</p>
+      <div class="onb-after rv d3" data-c>
+        <span class="step-week">이후</span>
+        <div class="after-grid">
+          <div class="after-card">
+            <h4 class="after-t">최적화</h4>
+            <p class="after-d">초기 데이터 기반 전환 추적 검증, 광고 구조 최적화, CRM 플로우 튜닝.</p>
+          </div>
+          <div class="after-card">
+            <h4 class="after-t">정규 운영</h4>
+            <p class="after-d">주간 슬랙 + 격주 콜 + 월간 KPI 리포트 한/영. NEST가 운영하고, 브랜드는 성장합니다.</p>
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="onb-panel" data-panel="growth">
+      <div class="onb-steps">
+        <div class="step rv" data-c>
+          <div class="step-bign">1</div>
+          <span class="step-week">1주차</span>
+          <h3 class="step-t">디스커버리 콜</h3>
+          <p class="step-d">채널 현황 + Amazon 재고/카탈로그 상태까지 함께 파악. 솔직한 대화 먼저.</p>
+        </div>
+        <div class="step rv d1" data-c>
+          <div class="step-bign">2</div>
+          <span class="step-week">2주차</span>
+          <h3 class="step-t">스코프 + 계약</h3>
+          <p class="step-d">Amazon FBA 포함 확장 스코프로 SOW 체결. 필요한 채널만 정확히.</p>
+        </div>
+        <div class="step rv d2" data-c>
+          <div class="step-bign">3</div>
+          <span class="step-week">3–4주차</span>
+          <h3 class="step-t">런칭 스프린트</h3>
+          <p class="step-d">Shopify 고도화 + Amazon FBA 셋업 + TikTok Shop + Klaviyo — 4주차에 멀티채널 라이브.</p>
+        </div>
+      </div>
+      <div class="onb-after rv d3" data-c>
+        <span class="step-week">이후</span>
+        <div class="after-grid">
+          <div class="after-card">
+            <h4 class="after-t">최적화</h4>
+            <p class="after-d">Sponsored Ads + TikTok 광고 구조 최적화, CRM 플로우 튜닝.</p>
+          </div>
+          <div class="after-card">
+            <h4 class="after-t">정규 운영</h4>
+            <p class="after-d">주간 슬랙 + 격주 전략 콜 + 월간 KPI 리포트 한/영. NEST가 운영하고, 브랜드는 성장합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="onb-panel" data-panel="scale">
+      <div class="onb-steps">
+        <div class="step rv" data-c>
+          <div class="step-bign">1</div>
+          <span class="step-week">1주차</span>
+          <h3 class="step-t">디스커버리 콜</h3>
+          <p class="step-d">멀티 마켓플레이스, 도매 확장 전략까지 포함한 심층 진단.</p>
+        </div>
+        <div class="step rv d1" data-c>
+          <div class="step-bign">2</div>
+          <span class="step-week">2주차</span>
+          <h3 class="step-t">스코프 + 전담 배정</h3>
+          <p class="step-d">커스텀 SOW 체결 + 전담 운영 담당자 배정.</p>
+        </div>
+        <div class="step rv d2" data-c>
+          <div class="step-bign">3</div>
+          <span class="step-week">3–4주차</span>
+          <h3 class="step-t">풀스택 온보딩</h3>
+          <p class="step-d">YouTube/프로그래매틱, 어필리에이트, Faire 도매 셋업 — 전 채널 동시 라이브.</p>
+        </div>
+      </div>
+      <div class="onb-after rv d3" data-c>
+        <span class="step-week">이후</span>
+        <div class="after-grid">
+          <div class="after-card">
+            <h4 class="after-t">최적화</h4>
+            <p class="after-d">전 채널 성과 기반 예산 재배분, 프로그래매틱 구조 튜닝.</p>
+          </div>
+          <div class="after-card">
+            <h4 class="after-t">정규 운영</h4>
+            <p class="after-d">주간 전략 미팅 + 본사 전용 리포팅. NEST가 운영하고, 브랜드는 성장합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- FOUNDER -->
 <section class="sec founder" id="founder">
+  <div class="nest-stamp" style="bottom:20px;left:-30px;width:220px;height:210px;transform:rotate(-10deg)" aria-hidden="true"><img src="nest-logo.png" alt=""></div>
   <div class="wrap">
     <div class="fd-grid">
       <div>
         <p class="eb rv">창업자</p>
-        <h2 class="h2 rv d1">David.<br><em>Irvine, CA.</em><br>USC 경영학.</h2>
-        <blockquote class="fd-quote rv d2">"아기상어부터 BTS, CPG·머천다이즈에서 프리미엄 가전 제품까지 — 한국 브랜드가 미국에서 파는 방법을 누구보다 많이 해봤습니다."</blockquote>
+        <h2 class="h2 rv d1">David.</h2>
+        <blockquote class="fd-quote rv d2">"Baby Shark부터 BTS까지, 한국 브랜드가 미국에서 파는 방법을 누구보다 많이 해봤습니다."</blockquote>
         <div class="orbit-wrap rv d3" aria-hidden="true">
           <svg viewBox="0 0 340 340">
             <circle class="orbit-ring" cx="170" cy="170" r="150"/>
@@ -1496,49 +1640,55 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
             <g class="orbit-sat s2"><circle cx="170" cy="64" r="3"/></g>
             <g class="orbit-node" transform="translate(170,20)">
               <circle r="5" fill="#7FA466"/>
-              <text x="12" y="4">키즈 IP</text>
+              <text x="12" y="4">Pinkfong</text>
             </g>
             <g class="orbit-node" transform="translate(276,116)">
               <circle r="5" fill="#7FA466"/>
-              <text x="12" y="4">K-pop 엔터</text>
+              <text x="12" y="4">HYBE</text>
             </g>
             <g class="orbit-node" transform="translate(64,224)">
               <circle r="5" fill="#7FA466"/>
-              <text x="12" y="4">가전 D2C</text>
+              <text x="12" y="4">Navien</text>
             </g>
             <g class="orbit-node hot" transform="translate(170,170)">
               <circle r="34" fill="rgba(217,172,69,.1)" stroke="rgba(217,172,69,.5)" stroke-width="1"/>
-              <text class="orbit-center-t" text-anchor="middle" y="5">DAVID</text>
+              <text class="orbit-center-t" text-anchor="middle" y="5">NEST</text>
             </g>
           </svg>
         </div>
-        <p class="f-status" style="margin-top:16px;text-align:left">개인 경력 하이라이트 — 아래 타임라인 참고</p>
       </div>
       <div class="rv d2">
         <div class="role" data-c>
-          <div class="role-y">1년 10개월</div>
           <div>
-            <div class="role-c">Pinkfong USA</div>
-            <div class="role-d">Baby Shark 글로벌 IP · Amazon 3P 운영 · 글로벌 유통 · 3PL</div>
+            <div class="role-c">USC</div>
+            <div class="role-d">경영학 학사</div>
           </div>
         </div>
         <div class="role" data-c>
-          <div class="role-y">3년 2개월</div>
+          <div>
+            <div class="role-c">CTK</div>
+            <div class="role-d">이커머스 3PL 물류 및 사업개발 담당</div>
+          </div>
+        </div>
+        <div class="role" data-c>
+          <div>
+            <div class="role-c">Pinkfong</div>
+            <div class="role-d">글로벌 IP 기반 유아/교육 제품</div>
+          </div>
+        </div>
+        <div class="role" data-c>
           <div>
             <div class="role-c">HYBE / Weverse</div>
-            <div class="role-d">BTS 머천다이즈 · 미국 DTC 이커머스 · Associate Manager</div>
+            <div class="role-d">BTS 등 K-pop 머천다이즈 · 자체 플랫폼 이커머스 운영</div>
           </div>
         </div>
         <div class="role" data-c>
-          <div class="role-y">현재 재직 중</div>
           <div>
-            <div class="role-c">가전 브랜드 (현직)</div>
-            <div class="role-d">미국 Shopify DTC 런칭 프로젝트 참여 · Meta CAPI · GA4 · Amazon FBA · 퍼포먼스 광고 실무</div>
-            <div class="role-d" style="margin-top:4px;opacity:.6;font-size:10px">* 개인 재직 경력이며 Nest Agency의 고객사가 아닙니다</div>
+            <div class="role-c">Navien</div>
+            <div class="role-d">Sleep Tech 가전 미국 D2C 총괄 · 마케팅 전략</div>
           </div>
         </div>
         <div class="role now" data-c>
-          <div class="role-y">2026</div>
           <div>
             <div class="role-c">Nest Agency</div>
             <div class="role-d">한국 브랜드. 미국 D2C 매출.</div>
@@ -1551,6 +1701,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 
 <!-- FOOTER CTA -->
 <div class="fcta" id="fcta">
+  <div class="nest-stamp" style="top:36px;left:clamp(16px,4vw,56px);width:130px;height:124px;transform:rotate(-6deg)" aria-hidden="true"><img src="nest-logo.png" alt=""></div>
   <div class="topo" aria-hidden="true">
     <svg viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice">
       <g fill="none" stroke="rgba(190,215,140,.05)" stroke-width="1">
@@ -1566,11 +1717,47 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
     </svg>
   </div>
   <div class="fcta-word" id="fctaWord">NEST</div>
-  <h2 class="fcta-h rv">한국 브랜드.<br><span class="gd">미국 D2C 매출.</span><br><em>얘기 나눠봅시다.</em></h2>
-  <p class="fcta-sub rv d1" style="margin-bottom:10px;letter-spacing:2px">Nest, 둥지 — 브랜드가 미국에 자리 잡는 곳</p>
-  <p class="fcta-sub rv d1" style="opacity:.6">nestagency.co · Irvine, CA · 2026년 설립 예정</p>
-  <div class="fcta-btns rv d2">
-    <a class="mbtn" href="mailto:david@nestagency.co" data-c data-mag><span class="fill"></span><span>David에게 연락하기</span><i>→</i></a>
+  <h2 class="fcta-h rv">한국 브랜드의<br><span class="gd">미국 D2C 매출,</span><br><em>얘기 나눠볼까요?</em></h2>
+  <p class="fcta-sub rv d1">간단한 정보만 남겨주시면, 미팅 전에 미리 파악하고 시작할 수 있어요.</p>
+  <form class="cform rv d2" id="contactForm" action="https://formspree.io/f/xbdvnjdd" method="POST">
+    <div class="cform-fields">
+      <div class="cform-row">
+        <div class="cform-field">
+          <label for="cfBrand">브랜드명 *</label>
+          <input type="text" id="cfBrand" name="브랜드명" placeholder="예: OptiSleep" required>
+        </div>
+        <div class="cform-field">
+          <label for="cfEmail">회신받을 이메일 *</label>
+          <input type="email" id="cfEmail" name="이메일" placeholder="you@brand.com" required>
+        </div>
+      </div>
+      <div class="cform-row">
+        <div class="cform-field">
+          <label for="cfSite">웹사이트 / 스토어 링크</label>
+          <input type="url" id="cfSite" name="웹사이트" placeholder="https://">
+        </div>
+        <div class="cform-field">
+          <label for="cfRevenue">현재 월매출 규모</label>
+          <select id="cfRevenue" name="월매출_규모">
+            <option value="">선택해주세요</option>
+            <option value="아직 매출 없음 (론칭 전)">아직 매출 없음 (론칭 전)</option>
+            <option value="$0 - $20K/mo">$0 - $20K/mo</option>
+            <option value="$20K - $100K/mo">$20K - $100K/mo</option>
+            <option value="$100K/mo 이상">$100K/mo 이상</option>
+          </select>
+        </div>
+      </div>
+      <div class="cform-field full" style="margin-bottom:14px">
+        <label for="cfMsg">전하고 싶은 내용 (선택)</label>
+        <textarea id="cfMsg" name="메시지" placeholder="카테고리, 목표, 궁금한 점 등 편하게 남겨주세요."></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="Nest Agency 문의">
+      <button type="submit" class="cform-submit" id="cfSubmit">문의 보내기 →</button>
+    </div>
+    <p class="cform-status" id="cfStatus"></p>
+    <p class="cform-note">또는 이메일로 직접: <a href="mailto:david@nestyourbrand.com">david@nestyourbrand.com</a></p>
+  </form>
+  <div class="fcta-btns rv d3" style="margin-top:28px">
     <a class="gbtn" href="#hero" data-c>맨 위로</a>
   </div>
 </div>
@@ -1582,24 +1769,18 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
       <div>
         <div class="f-logo">
           <span class="nl-mark" style="width:22px;height:22px;display:inline-block">
-            <svg viewBox="0 0 26 26" fill="none">
-              <path d="M3 16c1.6-3.4 5.2-5.6 10-5.6s8.4 2.2 10 5.6" stroke="#D9AC45" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M4.5 18.5c1.8-2.6 4.9-4.1 8.5-4.1s6.7 1.5 8.5 4.1" stroke="#D9AC45" stroke-width="1.3" stroke-linecap="round" opacity=".6"/>
-              <path d="M2 21c2.2-1.9 6-3 11-3s8.8 1.1 11 3" stroke="#D9AC45" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="13" cy="9" r="2.3" fill="#D9AC45"/>
-            </svg>
+            <img src="nest-logo.png" alt="Nest" style="width:100%;height:100%;object-fit:contain">
           </span>
           Nest <em>에이전시</em>
         </div>
-        <p class="f-tag">Nest, 둥지. 한국 브랜드가 미국 이커머스에 자리 잡는 곳. Shopify · Amazon · 퍼포먼스 광고 · CRM. Irvine, CA.</p>
-        <div class="f-clock" style="margin-top:22px"><span class="live"></span>IRVINE, CA — <b id="laClock">00:00:00</b></div>
-        <p class="f-status">2026 신규 클라이언트 모집 예정</p>
+        <p class="f-tag">한국 브랜드의 미국 D2C 매출을 만드는 이커머스 실행 파트너. Shopify · Amazon · 퍼포먼스 광고 · CRM.</p>
+        <div class="f-clock" style="margin-top:22px"><span class="live"></span>PACIFIC TIME — <b id="laClock">00:00:00</b></div>
       </div>
       <div>
         <p class="f-h">서비스</p>
         <ul class="f-links">
-          <li><a href="#tiers" data-c>스타터 — $3,500/월</a></li>
-          <li><a href="#tiers" data-c>그로스 — $6,500/월</a></li>
+          <li><a href="#tiers" data-c>스타터 — $3,000/월</a></li>
+          <li><a href="#tiers" data-c>그로스 — $6,000/월</a></li>
           <li><a href="#tiers" data-c>스케일 — $12K+/월</a></li>
         </ul>
       </div>
@@ -1607,20 +1788,20 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
         <p class="f-h">회사</p>
         <ul class="f-links">
           <li><a href="#founder" data-c>소개</a></li>
-          <li><a href="mailto:david@nestagency.co" data-c>문의</a></li>
+          <li><a href="#fcta" data-c>문의</a></li>
         </ul>
       </div>
       <div>
         <p class="f-h">법적 문서</p>
         <ul class="f-links">
-          <li><a href="#" data-c style="opacity:.5;pointer-events:none" aria-disabled="true">개인정보처리방침 (준비중)</a></li>
-          <li><a href="#" data-c style="opacity:.5;pointer-events:none" aria-disabled="true">이용약관 (준비중)</a></li>
+          <li><a href="#" data-c>개인정보처리방침</a></li>
+          <li><a href="#" data-c>이용약관</a></li>
         </ul>
       </div>
     </div>
     <div class="f-bot">
       <p class="f-copy">© 2026 Nest Agency LLC. 모든 권리 보유.</p>
-      <p class="f-dom">nestagency.co</p>
+      <p class="f-dom">nestyourbrand.com</p>
     </div>
   </div>
 </footer>
@@ -1657,11 +1838,11 @@ function heroIn(){
   });
   setTimeout(()=>{ $('#hDesc').classList.add('in'); $('#hCtas').classList.add('in'); }, 900);
   setTimeout(buildStart, 660);
+  setTimeout(countersInView, 1100);
 }
 
 /* ── CURSOR ── */
 const dot = $('#cdot'), ring = $('#cring');
-if(matchMedia('(pointer:fine)').matches) document.body.classList.add('cursor-ready');
 let mx=innerWidth/2, my=innerHeight/2, rx=mx, ry=my;
 addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; }, {passive:true});
 $$('a,[data-c],button').forEach(el=>{
@@ -1676,31 +1857,17 @@ let lastY = 0;
 /* ── SCROLL PROGRESS ── */
 const sBar = $('#sprogBar');
 
-/* ── MARQUEE (rAF-driven, hover slows) ── */
-const mqT = $('#mqT');
-mqT.innerHTML += mqT.innerHTML + mqT.innerHTML;
-let mqX = 0, mqSpeed = .7, mqTarget = .7;
-$('#mq').addEventListener('mouseenter',()=> mqTarget = .15);
-$('#mq').addEventListener('mouseleave',()=> mqTarget = .7);
-const mqW = () => mqT.scrollWidth / 3;
-
 /* ── STORY (scroll-driven) ── */
 const story = $('#story'), storyStick = $('#storyStick');
-let storyNear = false;
-new IntersectionObserver(es=>{ storyNear = es[0].isIntersecting; }, {rootMargin:'50% 0px 50% 0px'}).observe(story);
 const slines = $$('.sline');
 const storyBar = $('#storyBar'), storyN = $('#storyN');
 
 /* ── BLAST ── */
 const blast = $('#blast'), blastH = $('#blastH'), blastGlow = $('#blastGlow');
-let blastNear = false;
-new IntersectionObserver(es=>{ blastNear = es[0].isIntersecting; }, {rootMargin:'50% 0px 50% 0px'}).observe(blast);
 const btags = $$('.btag');
 
 /* ── HSCROLL ── */
 const hs = $('#services'), hsPin = $('#hsPin'), hsTrack = $('#hsTrack'), hsBar = $('#hsBar');
-let hsNear = false;
-new IntersectionObserver(es=>{ hsNear = es[0].isIntersecting; }, {rootMargin:'50% 0px 50% 0px'}).observe(hs);
 function hsSetHeight(){
   if(reduced){ hs.style.height='auto'; return; }
   const scrollLen = hsTrack.scrollWidth - innerWidth + 200;
@@ -1738,15 +1905,8 @@ function tick(){
     heroWord.style.transform = `translate(-50%,-50%) translate(${px*-24}px,${y*.18}px)`;
   }
 
-  // marquee
-  mqSpeed = lerp(mqSpeed, mqTarget, .06);
-  mqX -= mqSpeed;
-  const w = mqW();
-  if(-mqX >= w) mqX += w;
-  mqT.style.transform = `translateX(${mqX}px) skewX(var(--sk,0deg))`;
-
   // story
-  if(!reduced && storyNear){
+  if(!reduced){
     const sr = story.getBoundingClientRect();
     const stotal = story.offsetHeight - vh;
     const sc = clamp(-sr.top/stotal, 0, 1);
@@ -1766,15 +1926,17 @@ function tick(){
   }
 
   // blast
-  if(!reduced && blastNear){
+  if(!reduced){
     const br = blast.getBoundingClientRect();
     const btotal = blast.offsetHeight - vh;
     const bc = clamp(-br.top/btotal, 0, 1);
     if(br.top < vh && br.bottom > 0){
       if(bc > .04) blast.classList.add('on'); else blast.classList.remove('on');
-      const scat = clamp(bc/.3, 0, 1);
-      const drift = clamp((bc-.3)/.4, 0, 1);
-      const conv = clamp((bc-.7)/.3, 0, 1);
+      const scat = clamp(bc/.28, 0, 1);
+      const drift = clamp((bc-.28)/.32, 0, 1);
+      const conv = clamp((bc-.55)/.23, 0, 1);
+      const reveal = clamp((bc-.80)/.20, 0, 1);
+      const cols = 4;
       btags.forEach((t,i)=>{
         const tx = parseFloat(t.dataset.x)/100 * innerWidth;
         const ty = parseFloat(t.dataset.y)/100 * vh;
@@ -1784,20 +1946,33 @@ function tick(){
         const dY = Math.cos(drift*Math.PI*2 + i*.5)*9*(1-conv);
         const cX = sX*(1-easeOut(conv)), cY = sY*(1-easeOut(conv));
         const rot = tr*easeOut(scat)*(1-easeOut(conv));
-        const scl = (.4+.6*easeOut(scat)) + (0.9)*easeOut(conv)*0;
-        const op  = easeOut(scat)*(1-conv*.85);
-        t.style.opacity = op;
-        t.style.transform = `translate(-50%,-50%) translate(${cX+dX}px,${cY+dY}px) rotate(${rot}deg) scale(${scl})`;
+        const scl = .4+.6*easeOut(scat);
+        const op  = easeOut(scat)*(1-easeOut(conv)*.85);
+
+        // clean settled list — bottom of viewport, fades in after convergence
+        const col = i % cols, row = Math.floor(i/cols);
+        const listX = (col-(cols-1)/2) * Math.min(innerWidth*.17, 205);
+        const listY = vh*.26 + row*38;
+
+        const rv = easeOut(reveal);
+        const fx = lerp(cX+dX, listX, rv);
+        const fy = lerp(cY+dY, listY, rv);
+        const frot = lerp(rot, 0, rv);
+        const fscl = lerp(scl, .56, rv);
+        const fop  = lerp(op, 1, rv);
+
+        t.style.opacity = fop;
+        t.style.transform = `translate(-50%,-50%) translate(${fx}px,${fy}px) rotate(${frot}deg) scale(${fscl})`;
       });
-      if(bc > .74){ blastH.classList.add('solid'); blastH.innerHTML='우리가<br>운영합니다.'; }
-      else { blastH.classList.remove('solid'); blastH.innerHTML='TOOLS &amp;<br>CHANNELS'; }
+      if(bc > .74){ blastH.classList.add('solid'); blastH.innerHTML='NEST가<br>합니다.'; }
+      else { blastH.classList.remove('solid'); blastH.innerHTML='ALL<br>CHANNELS'; }
       const g = .06 + bc*.16;
       blastGlow.style.background = `radial-gradient(ellipse 55% 55% at 50% 50%, rgba(150,190,80,${g}) 0%, transparent 70%)`;
     }
   }
 
   // hscroll
-  if(!reduced && hsNear){
+  if(!reduced){
     const hr = hs.getBoundingClientRect();
     const htotal = hs.offsetHeight - vh;
     if(hr.top < 0 && hr.bottom > vh){
@@ -1835,6 +2010,25 @@ const onbIO = new IntersectionObserver(es=>{
 },{threshold:.3});
 onbIO.observe($('#onb'));
 
+/* onboard tier tabs */
+(function(){
+  const tabs = $$('.onb-tab');
+  const panels = $$('.onb-panel');
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      if(tab.classList.contains('active')) return;
+      tabs.forEach(t=>t.classList.remove('active'));
+      panels.forEach(p=>p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.querySelector(`.onb-panel[data-panel="${tab.dataset.tier}"]`);
+      if(panel){
+        panel.classList.add('active');
+        panel.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+      }
+    });
+  });
+})();
+
 /* ── COUNT-UP ── */
 let counted = new WeakSet();
 function countUp(el){
@@ -1847,6 +2041,9 @@ function countUp(el){
     el.textContent = Math.round(easeOut(p)*target);
     if(p<1) requestAnimationFrame(frame);
   })(t0);
+}
+function countersInView(){
+  $$('#hero [data-count]').forEach(countUp);
 }
 const cntIO = new IntersectionObserver(es=>{
   es.forEach(e=>{ if(e.isIntersecting){ countUp(e.target); cntIO.unobserve(e.target); } });
@@ -1891,6 +2088,40 @@ $$('[data-mag]').forEach(btn=>{
   });
 });
 
+/* ── CONTACT FORM (Formspree AJAX) ── */
+(function(){
+  const form = document.getElementById('contactForm');
+  if(!form) return;
+  const status = document.getElementById('cfStatus');
+  const submitBtn = document.getElementById('cfSubmit');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = '보내는 중...';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(res=>{
+      if(res.ok){
+        form.classList.add('sent');
+        status.textContent = '전달됐습니다. 빠르게 확인 후 회신드릴게요.';
+        status.classList.add('show');
+      } else {
+        status.textContent = '전송에 실패했어요. 이메일로 직접 보내주시겠어요?';
+        status.classList.add('show');
+        submitBtn.disabled = false;
+        submitBtn.textContent = '문의 보내기 →';
+      }
+    }).catch(()=>{
+      status.textContent = '전송에 실패했어요. 이메일로 직접 보내주시겠어요?';
+      status.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.textContent = '문의 보내기 →';
+    });
+  });
+})();
+
 /* ── SMOOTH ANCHOR SCROLL ── */
 $$('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', e=>{
@@ -1904,7 +2135,7 @@ $$('a[href^="#"]').forEach(a=>{
 });
 
 
-/* ── NEST WEAVE (scroll-morphing generative canvas) ── */
+/* ── NEST SCRIBBLE (jagged paint-scribble → converges center → clean circle) ── */
 (function(){
   const cv = document.getElementById('nestCv');
   if(!cv) return;
@@ -1920,18 +2151,33 @@ $$('a[href^="#"]').forEach(a=>{
   resize();
   addEventListener('resize', resize);
 
-  const N = reduced ? 0 : 30;
-  const strands = Array.from({length:N},(_,i)=>({
-    r:   .26 + Math.random()*.20,
-    ecc: .42 + Math.random()*.22,
-    ph:  Math.random()*Math.PI*2,
-    sp:  (.00018 + Math.random()*.00042)*(Math.random()<.5?-1:1),
-    wob: .015 + Math.random()*.05,
-    wf:  2 + (Math.random()*4|0),
-    gold: i%6===0, moss: i%3===0,
-    op:  .035 + Math.random()*.075,
-    lw:  .5 + Math.random()*1.2
-  }));
+  // jagged scribble strands — like drawn fast in MS Paint
+  const N = reduced ? 0 : 22;
+  const PTS = 26; // points per strand — few points + straight segments = sharp angles
+  const strands = Array.from({length:N},(_,i)=>{
+    const pts = [];
+    let a = Math.random()*Math.PI*2;
+    for(let k=0;k<PTS;k++){
+      a += (Math.PI*2/PTS) * (0.3 + Math.random()*1.8);  // uneven angle jumps
+      pts.push({
+        a,
+        rj: .25 + Math.random()*.95,     // wild radius jumps = spiky
+        jx: (Math.random()-.5),          // per-point drift seeds
+        jy: (Math.random()-.5),
+        js: .5 + Math.random()*1.5
+      });
+    }
+    return {
+      pts,
+      round: Math.random() < .2,          // 20% rounded strands, 80% jagged
+      rx: .22 + Math.random()*.24,
+      ry: .16 + Math.random()*.20,
+      ph: Math.random()*Math.PI*2,
+      gold: i%4!==0,
+      op: .05 + Math.random()*.09,
+      lw: .6 + Math.random()*1.4
+    };
+  });
 
   let mxN=.5, myN=.5;
   addEventListener('mousemove', e=>{
@@ -1948,72 +2194,70 @@ $$('a[href^="#"]').forEach(a=>{
     const sTop = storyEl.offsetTop;
     const sEnd = sTop + storyEl.offsetHeight - vh;
 
-    // past story → stop rendering (opaque sections cover us anyway)
     if(y > sEnd + vh*.6){
       if(!cleared){ ctx.clearRect(0,0,W,H); cleared = true; }
       return;
     }
     cleared = false;
 
-    // m: 0 = hero (loose, drifting) → 1 = end of story (calm woven nest)
+    // m: 0 = wild scribble → 1 = resolved clean circle (center)
     const m = easeIO(clamp((y - vh*.4)/(sEnd - vh*.4), 0, 1));
-    // tail fade as story hands off to next section
     const fade = 1 - clamp((y - (sEnd - vh*.2))/(vh*.8), 0, 1);
 
     ctx.clearRect(0,0,W,H);
     ctx.globalAlpha = fade;
 
-    const mouseAmt = 1 - m;                       // mouse influence calms away
-    const cx = W*(.5 + .21*m) + (mxN-.5)*30*mouseAmt;   // drifts right beside story text
-    const cy = H*(.40 + .13*m) + (myN-.5)*22*mouseAmt;
+    const mouseAmt = 1 - m;
+    const cx = W*.5 + (mxN-.5)*26*mouseAmt;   // stays centered
+    const cy = H*.44 + (myN-.5)*20*mouseAmt;
     const base = Math.min(W,H);
-    const breathe = 1 + Math.sin(t*.0006)*.014*m; // slow breathing, only when calm
+    const R = base*.17;                        // final clean circle radius
 
-    for(const s of strands){
-      const rr0 = lerp(s.r, .30 + (s.r-.36)*.38, m);   // strands converge into a tight band
-      const ecc = lerp(s.ecc, .58, m);                 // uniform bowl shape
-      const wob = s.wob*(1 - .74*m);                   // wobble settles
-      const sp  = s.sp *(1 - .68*m);                   // rotation slows
+    // strands dissolve as the circle resolves
+    const strandFade = 1 - clamp((m-.72)/.24, 0, 1);
+    // clean circle fades in at the end
+    const circleIn = clamp((m-.78)/.2, 0, 1);
 
-      ctx.beginPath();
-      const steps = 80;
-      for(let k=0;k<=steps;k++){
-        const a = (k/steps)*Math.PI*2;
-        const w = Math.sin(a*s.wf + t*sp*46 + s.ph)*wob;
-        const rr = base*(rr0+w)*breathe;
-        const x  = cx + Math.cos(a + t*sp)*rr;
-        const yv = cy + Math.sin(a + t*sp)*rr*ecc;
-        k===0 ? ctx.moveTo(x,yv) : ctx.lineTo(x,yv);
+    if(strandFade > 0){
+      for(const s of strands){
+        ctx.lineJoin = s.round ? 'round' : 'miter';
+        ctx.lineCap  = s.round ? 'round' : 'butt';
+        ctx.beginPath();
+        for(let k=0;k<s.pts.length;k++){
+          const p = s.pts[k];
+          // scribble position — jagged radius jumps + slow per-point drift
+          const jx = Math.sin(t*.0005*p.js + p.jx*9) * base*.02*(1-m);
+          const jy = Math.cos(t*.0004*p.js + p.jy*9) * base*.02*(1-m);
+          const sx = cx + Math.cos(p.a + s.ph) * base*s.rx*p.rj + jx;
+          const sy = cy + Math.sin(p.a + s.ph) * base*s.ry*p.rj + jy;
+          // target: evenly spaced point on the clean circle
+          const ta = (k/s.pts.length)*Math.PI*2 + s.ph;
+          const txp = cx + Math.cos(ta)*R;
+          const typ = cy + Math.sin(ta)*R;
+          const px = lerp(sx, txp, m);
+          const py = lerp(sy, typ, m);
+          k===0 ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
+        }
+        ctx.closePath();
+        const col = s.gold ? '217,172,69' : '241,237,218';
+        ctx.strokeStyle = `rgba(${col},${Math.max(.02, s.op)*strandFade})`;
+        ctx.lineWidth = s.lw;
+        ctx.stroke();
       }
-      ctx.closePath();
+    }
 
-      // color warms: gold strands glow up, cream recedes slightly
-      const col = s.gold ? '217,172,69' : (s.moss ? '127,164,102' : '241,237,218');
-      const boost = s.gold ? m*.065 : (s.moss ? m*.02 : -m*.012);
-      ctx.strokeStyle = `rgba(${col},${Math.max(.015, s.op+boost)})`;
-      ctx.lineWidth = s.lw + (s.gold ? m*.55 : 0);
-      ctx.stroke();
+    // final: one clean solid circle — 일장기 style, gold
+    if(circleIn > 0){
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(217,172,69,${.9*easeIO(circleIn)})`;
+      ctx.fill();
     }
     ctx.globalAlpha = 1;
   }
   requestAnimationFrame(draw);
 })();
 
-
-/* ── SCROLL VELOCITY SKEW (marquee) ── */
-let velY = 0, prevY = scrollY;
-setInterval(()=>{ velY = lerp(velY, scrollY - prevY, .3); prevY = scrollY; }, 16);
-
-/* patch: apply skew inside main loop via CSS var */
-(function(){
-  const mq = document.getElementById('mqT');
-  function skewTick(){
-    const sk = clamp(velY*.28, -8, 8);
-    mq.style.setProperty('--sk', sk+'deg');
-    requestAnimationFrame(skewTick);
-  }
-  requestAnimationFrame(skewTick);
-})();
 
 /* ── TEXT SCRAMBLE (nav links + eyebrows) ── */
 const SCR_CHARS = '!<>-_/[]{}=+*^?#░▒▓';
@@ -2038,34 +2282,53 @@ function scramble(el){
 }
 $$('.nlinks a').forEach(a=> a.addEventListener('mouseenter',()=>scramble(a)));
 
-/* ── DEPARTURE BOARD flap-in ── */
-function flapIn(cell, delay){
-  const finalT = cell.dataset.final;
-  setTimeout(()=>{
-    let frame = 0, total = 22;
+/* ── CHANNEL TICKER (scramble rotation) ── */
+(function(){
+  const word = document.getElementById('chsWord');
+  const idx  = document.getElementById('chsIdx');
+  const total= document.getElementById('chsTotal');
+  const bar  = document.getElementById('chsBar');
+  if(!word) return;
+  const items = [
+    'SHOPIFY DTC','AMAZON FBA','META & GOOGLE ADS','KLAVIYO CRM',
+    'TIKTOK SHOP','한/영 리포팅','BABY SHARK부터 BTS까지','K-뷰티 · 가구 · 식품 · 라이프스타일'
+  ];
+  total.textContent = String(items.length).padStart(2,'0');
+  let cur = 0;
+  const HOLD = 2400; // ms per item
+  let t0 = performance.now();
+
+  function toWord(next){
+    const target = items[next];
+    if(reduced){ word.textContent = target; return; }
+    let frame = 0; const totalF = 18;
     (function step(){
       frame++;
-      const settled = Math.floor((frame/total)*finalT.length);
+      const done = Math.floor((frame/totalF)*target.length);
       let out = '';
-      for(let i=0;i<finalT.length;i++){
-        out += i < settled ? finalT[i]
-          : (finalT[i]===' ' ? ' ' : SCR_CHARS[Math.random()*SCR_CHARS.length|0]);
+      for(let i=0;i<target.length;i++){
+        out += i < done ? target[i]
+          : (target[i]===' ' ? ' ' : SCR_CHARS[Math.random()*SCR_CHARS.length|0]);
       }
-      cell.textContent = out;
-      if(frame < total) requestAnimationFrame(step);
-      else cell.textContent = finalT;
+      word.textContent = out;
+      if(frame < totalF) requestAnimationFrame(step);
+      else word.textContent = target;
     })();
-  }, delay);
-}
-const depIO = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(!e.isIntersecting) return;
-    depIO.disconnect();
-    $$('#depBoard .dep-cell').forEach((c,i)=> flapIn(c, i*90));
-  });
-},{threshold:.35});
-const depBoard = $('#depBoard');
-if(depBoard) depIO.observe(depBoard);
+  }
+
+  function loop(now){
+    requestAnimationFrame(loop);
+    const p = (now - t0)/HOLD;
+    if(bar) bar.style.width = clamp(p*100,0,100)+'%';
+    if(p >= 1){
+      t0 = now;
+      cur = (cur+1)%items.length;
+      idx.textContent = String(cur+1).padStart(2,'0');
+      toWord(cur);
+    }
+  }
+  requestAnimationFrame(loop);
+})();
 
 /* ── ODOMETER (tier prices) ── */
 function buildOdo(el){
@@ -2166,7 +2429,7 @@ $$('.prob').forEach(p=>{
 (function(){
   const map = {};
   $$('.sdot').forEach(d=> map[d.dataset.sec] = d);
-  const secs = ['hero','story','dep','problems','tiers','services','founder']
+  const secs = ['hero','story','problems','tiers','services','founder']
     .map(id=>document.getElementById(id)).filter(Boolean);
   const dio = new IntersectionObserver(es=>{
     es.forEach(e=>{
@@ -2179,7 +2442,7 @@ $$('.prob').forEach(p=>{
   secs.forEach(s=>dio.observe(s));
 })();
 
-/* ── LIVE IRVINE CLOCK ── */
+/* ── LIVE PACIFIC CLOCK ── */
 (function(){
   const el = document.getElementById('laClock');
   if(!el) return;
@@ -2193,7 +2456,7 @@ $$('.prob').forEach(p=>{
 
 /* ── CONSOLE SIGNATURE ── */
 console.log('%cNEST', 'font-family:Impact,sans-serif;font-size:52px;font-weight:900;color:#D9AC45;letter-spacing:-2px');
-console.log('%c둥지처럼 단단하게 짓습니다. 이 코드가 궁금하시면 — david@nestagency.co', 'font-size:12px;color:#7FA466');
+console.log('%c둥지처럼 단단하게 짓습니다. 이 코드가 궁금하시면 — david@nestyourbrand.com', 'font-size:12px;color:#7FA466');
 
 
 /* ── BUILD-IN TEXT engine ── */
