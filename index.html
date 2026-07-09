@@ -99,18 +99,19 @@ button{font:inherit;background:none;border:none;color:inherit;cursor:none}
 
 /* ── CURSOR ────────────────────────────── */
 #cdot{
-  position:fixed;width:8px;height:8px;border-radius:50%;
-  background:var(--cream);z-index:1900;pointer-events:none;
-  transform:translate(-50%,-50%);
-  transition:width .3s var(--e-out),height .3s var(--e-out),background .3s;
+  position:fixed;width:22px;height:22px;z-index:1900;pointer-events:none;
+  transform:translate(-50%,-50%) rotate(0deg);
+  transition:width .3s var(--e-out),height .3s var(--e-out),opacity .3s;
+  filter:drop-shadow(0 0 5px rgba(217,172,69,.35));
 }
+#cdot img{width:100%;height:100%;object-fit:contain;display:block}
 #cring{
   position:fixed;width:34px;height:34px;border-radius:50%;
   border:1px solid rgba(241,237,218,.35);z-index:1899;pointer-events:none;
   transform:translate(-50%,-50%);
   transition:width .35s var(--e-out),height .35s var(--e-out),opacity .3s,border-color .3s;
 }
-body.c-link #cdot{width:0;height:0}
+body.c-link #cdot{width:0;height:0;opacity:0}
 body.c-link #cring{width:58px;height:58px;border-color:var(--gold);opacity:.9}
 #cring .clabel{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
@@ -1113,7 +1114,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 </div>
 
 <!-- CURSOR -->
-<div id="cdot"></div>
+<div id="cdot"><img src="nest-logo.png" alt=""></div>
 <div id="cring"><span class="clabel">Go</span></div>
 
 <!-- SCROLL PROGRESS -->
@@ -1259,6 +1260,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 
 <!-- PROBLEMS -->
 <section class="sec probs" id="problems">
+  <div class="nest-stamp" style="top:40px;right:-40px;width:200px;height:190px;transform:rotate(14deg)" aria-hidden="true"><img src="nest-logo.png" alt=""></div>
   <div class="topo" aria-hidden="true">
     <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
       <g fill="none" stroke="rgba(190,215,140,.06)" stroke-width="1.2">
@@ -1306,6 +1308,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 
 <!-- TIERS -->
 <section class="sec tiers" id="tiers">
+  <div class="nest-stamp" style="bottom:10px;left:clamp(10px,3vw,40px);width:160px;height:152px;transform:rotate(-9deg)" aria-hidden="true"><img src="nest-logo.png" alt=""></div>
   <div class="wrap">
     <div class="sec-head">
       <p class="eb rv">서비스 플랜</p>
@@ -1402,6 +1405,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 
 <!-- HSCROLL SERVICES -->
 <section class="hs" id="services">
+  <div class="nest-stamp" style="top:24px;right:clamp(10px,3vw,40px);width:130px;height:124px;transform:rotate(11deg)" aria-hidden="true"><img src="nest-logo.png" alt=""></div>
   <div class="hs-pin" id="hsPin">
     <div class="hs-head">
       <div>
@@ -1497,6 +1501,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 
 <!-- ONBOARD -->
 <section class="sec onb" id="onb">
+  <div class="nest-stamp" style="bottom:-20px;right:-20px;width:190px;height:180px;transform:rotate(-13deg)" aria-hidden="true"><img src="nest-logo.png" alt=""></div>
   <div class="wrap">
     <div class="sec-head" style="text-align:center">
       <p class="eb rv" style="justify-content:center">운영 방식</p>
@@ -1886,6 +1891,7 @@ function tick(){
 
   // cursor
   dot.style.left = mx+'px'; dot.style.top = my+'px';
+  dot.style.transform = `translate(-50%,-50%) rotate(${(performance.now()*.012)%360}deg)`;
   rx = lerp(rx, mx, .13); ry = lerp(ry, my, .13);
   ring.style.left = rx+'px'; ring.style.top = ry+'px';
 
