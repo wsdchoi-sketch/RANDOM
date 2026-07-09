@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nest Agency — 한국 브랜드의 미국 D2C 매출</title>
 <meta name="description" content="한국 브랜드의 미국 D2C 매출을 만드는 이커머스 실행 파트너. Shopify, Amazon, 퍼포먼스 광고, CRM.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nest Agency — 한국 브랜드의 미국 D2C 매출">
+<meta property="og:description" content="한국 브랜드의 미국 D2C 매출을 만드는 이커머스 실행 파트너. Shopify, Amazon, 퍼포먼스 광고, CRM.">
+<meta property="og:image" content="https://nestyourbrand.com/og-image.png">
+<meta property="og:url" content="https://nestyourbrand.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nest Agency — 한국 브랜드의 미국 D2C 매출">
+<meta name="twitter:description" content="한국 브랜드의 미국 D2C 매출을 만드는 이커머스 실행 파트너.">
+<meta name="twitter:image" content="https://nestyourbrand.com/og-image.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322391F'/%3E%3Cpath d='M8 38c8-20 40-20 48 0' stroke='%23F5E11E' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,7 +108,7 @@ button{font:inherit;background:none;border:none;color:inherit;cursor:none}
 
 /* ── CURSOR ────────────────────────────── */
 #cdot{
-  position:fixed;width:22px;height:22px;z-index:1900;pointer-events:none;
+  position:fixed;width:34px;height:34px;z-index:1900;pointer-events:none;
   transform:translate(-50%,-50%) rotate(0deg);
   transition:width .3s var(--e-out),height .3s var(--e-out),opacity .3s;
   filter:drop-shadow(0 0 5px rgba(217,172,69,.35));
@@ -152,9 +161,9 @@ nav.hidden{transform:translateY(-100%)}
   display:flex;align-items:center;gap:10px;
 }
 .nlogo .nl-mark{
-  width:26px;height:26px;position:relative;flex-shrink:0;
+  width:40px;height:40px;position:relative;flex-shrink:0;
 }
-.nlogo .nl-mark svg{width:100%;height:100%}
+.nlogo .nl-mark img{width:100%;height:100%;object-fit:contain}
 .nlogo em{font-style:normal;font-weight:300;color:var(--dim)}
 .nlinks{display:flex;gap:6px;list-style:none;align-items:center}
 .nlinks a{
@@ -370,13 +379,13 @@ nav.hidden{transform:translateY(-100%)}
   padding:0 clamp(24px,4.5vw,64px);overflow:hidden;
 }
 .story-eb{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;gap:10px;
   font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
   color:var(--gold);margin-bottom:48px;
   opacity:0;transform:translateY(10px);
   transition:opacity .6s,transform .6s;
 }
-.story-eb::before{content:'';width:32px;height:1px;background:var(--gold)}
+.eb-mark{width:15px;height:15px;object-fit:contain;flex-shrink:0;opacity:.9}
 .story-stick.on .story-eb{opacity:1;transform:translateY(0)}
 .sline{
   overflow:hidden;max-height:0;opacity:0;
@@ -418,6 +427,7 @@ nav.hidden{transform:translateY(-100%)}
   position:relative;z-index:2;text-align:center;pointer-events:none;
 }
 .blast-eb{
+  display:inline-flex;align-items:center;gap:8px;
   font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
   color:var(--gold);margin-bottom:18px;
   opacity:0;transition:opacity .5s;
@@ -455,11 +465,10 @@ nav.hidden{transform:translateY(-100%)}
 .wrap{max-width:1320px;margin:0 auto;padding:0 clamp(24px,4.5vw,64px)}
 .sec-head{margin-bottom:clamp(48px,6vw,84px)}
 .eb{
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;gap:10px;
   font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
   color:var(--gold);margin-bottom:22px;
 }
-.eb::before{content:'';width:32px;height:1px;background:var(--gold)}
 .h2{
   font-family:var(--disp);
   font-size:clamp(38px,5.2vw,74px);
@@ -852,7 +861,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 
 /* ── RESPONSIVE ────────────────────────── */
 @media(max-width:980px){
-  .nest-stamp{display:none}
+  .nest-stamp{transform:scale(.6) !important;opacity:.07}
   .nlinks{display:none}
   .h-stats{grid-template-columns:1fr 1fr}
   .h-stat:nth-child(2){border-right:none}
@@ -937,9 +946,9 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 ::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:10px;border:3px solid var(--bg)}
 ::-webkit-scrollbar-thumb:hover{background:var(--gold)}
 
-/* eyebrow line draws in */
-.eb::before{transform:scaleX(0);transform-origin:left;transition:transform .9s var(--e-out) .15s}
-.eb.in::before,.story-stick.on .story-eb::before{transform:scaleX(1)}
+/* eyebrow icon fades/scales in */
+.eb-mark{opacity:0;transform:scale(.4);transition:opacity .6s var(--e-out) .15s,transform .6s var(--e-out) .15s}
+.eb.in .eb-mark,.story-stick.on .story-eb .eb-mark{opacity:.9;transform:scale(1)}
 
 /* ── SIDE DOTS NAV ── */
 .sdots{
@@ -1201,7 +1210,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
 <!-- SCROLL STORY -->
 <section class="story" id="story">
   <div class="story-stick" id="storyStick">
-    <div class="story-eb">미국 D2C 매출</div>
+    <div class="story-eb"><img class="eb-mark" src="nest-logo.png" alt="">미국 D2C 매출</div>
     <div>
       <div class="sline" data-i="0">
         <span class="sline-t">미국 시장을 겨냥하는</span>
@@ -1234,7 +1243,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
     <canvas id="constCv"></canvas>
     <div class="blast-glow" id="blastGlow"></div>
     <div class="blast-core">
-      <div class="blast-eb">NEST가 운영하는 채널</div>
+      <div class="blast-eb"><img class="eb-mark" src="nest-logo.png" alt="">NEST가 운영하는 채널</div>
       <div class="blast-h" id="blastH">ALL<br>CHANNELS</div>
     </div>
     <div id="blastTags">
@@ -1278,7 +1287,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
   </div>
   <div class="wrap">
     <div class="sec-head">
-      <p class="eb rv">문제 정의</p>
+      <p class="eb rv"><img class="eb-mark" src="nest-logo.png" alt="">문제 정의</p>
       <h2 class="h2 rv d1">한국 브랜드가 미국에서<br><em>전환에 실패하는</em> 이유.</h2>
     </div>
     <div class="prob-grid">
@@ -1311,7 +1320,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
   <div class="nest-stamp" style="bottom:10px;left:clamp(10px,3vw,40px);width:160px;height:152px;transform:rotate(-9deg)" aria-hidden="true"><img src="nest-logo.png" alt=""></div>
   <div class="wrap">
     <div class="sec-head">
-      <p class="eb rv">서비스 플랜</p>
+      <p class="eb rv"><img class="eb-mark" src="nest-logo.png" alt="">서비스 플랜</p>
       <h2 class="h2 rv d1">세 가지 티어.<br><em>하나의 방향.</em></h2>
     </div>
     <div class="tier-grid">
@@ -1409,7 +1418,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
   <div class="hs-pin" id="hsPin">
     <div class="hs-head">
       <div>
-        <p class="eb">운영 범위</p>
+        <p class="eb"><img class="eb-mark" src="nest-logo.png" alt="">운영 범위</p>
         <h2 class="h2">NEST가 하는 것.<br><em>안 하는 것.</em></h2>
       </div>
     </div>
@@ -1504,7 +1513,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
   <div class="nest-stamp" style="bottom:-20px;right:-20px;width:190px;height:180px;transform:rotate(-13deg)" aria-hidden="true"><img src="nest-logo.png" alt=""></div>
   <div class="wrap">
     <div class="sec-head" style="text-align:center">
-      <p class="eb rv" style="justify-content:center">운영 방식</p>
+      <p class="eb rv" style="justify-content:center"><img class="eb-mark" src="nest-logo.png" alt="">운영 방식</p>
       <h2 class="h2 rv d1">첫 통화부터 <span class="gd">실매출</span>까지<br><em>4주면 됩니다.</em></h2>
     </div>
 
@@ -1633,7 +1642,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
   <div class="wrap">
     <div class="fd-grid">
       <div>
-        <p class="eb rv">창업자</p>
+        <p class="eb rv"><img class="eb-mark" src="nest-logo.png" alt="">창업자</p>
         <h2 class="h2 rv d1">David.</h2>
         <blockquote class="fd-quote rv d2">"Baby Shark부터 BTS까지, 한국 브랜드가 미국에서 파는 방법을 누구보다 많이 해봤습니다."</blockquote>
         <div class="orbit-wrap rv d3" aria-hidden="true">
