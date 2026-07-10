@@ -878,6 +878,37 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
   .f-grid{grid-template-columns:1fr 1fr;gap:36px}
   .story{height:420vh}
   .blast{height:360vh}
+
+  /* 모바일: 세로 스크롤로 가로 이동시키는 JS 하이재킹 대신
+     손가락으로 직접 좌우 스와이프하는 네이티브 스크롤로 전환 */
+  .hs{height:auto!important}
+  .hs-pin{position:relative;height:auto;padding:56px 0 8px}
+  .hs-track{
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:22px;
+    scrollbar-width:thin;
+  }
+  .hcard{scroll-snap-align:start}
+  .hs-prog{display:none}
+  .hs-swipe-hint{
+    display:flex;align-items:center;gap:8px;
+    margin:0 clamp(24px,4.5vw,64px) 18px;
+    font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--dim);
+  }
+  .hs-swipe-hint i{
+    display:inline-block;width:22px;height:1px;background:var(--gold);
+    position:relative;flex-shrink:0;
+  }
+  .hs-swipe-hint i::after{
+    content:'';position:absolute;right:0;top:-3px;
+    border:4px solid transparent;border-left-color:var(--gold);
+  }
+}
+@media(min-width:981px){
+  .hs-swipe-hint{display:none}
 }
 @media(max-width:560px){
   .proof-grid{grid-template-columns:1fr}
@@ -1419,9 +1450,10 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:64px 0 32px
     <div class="hs-head">
       <div>
         <p class="eb"><img class="eb-mark" src="nest-logo.png" alt="">운영 범위</p>
-        <h2 class="h2">NEST가 하는 것.<br><em>안 하는 것.</em></h2>
+        <h2 class="h2">NEST가 하는 것.<br><em>하지 않는 것.</em></h2>
       </div>
     </div>
+    <div class="hs-swipe-hint" aria-hidden="true"><i></i>옆으로 밀어서 더 보기</div>
     <div class="hs-track" id="hsTrack">
       <div class="hcard" data-c>
         <div class="hc-eb">We Operate</div>
@@ -1867,6 +1899,11 @@ $$('a,[data-c],button').forEach(el=>{
 /* ── NAV hide/show + scrolled ── */
 const nav = $('#nav');
 let lastY = 0;
+let isMobile = matchMedia('(max-width: 980px)').matches;
+matchMedia('(max-width: 980px)').addEventListener('change', e=>{
+  isMobile = e.matches;
+  if(typeof hsSetHeight === 'function') hsSetHeight();
+});
 
 /* ── SCROLL PROGRESS ── */
 const sBar = $('#sprogBar');
@@ -1883,7 +1920,7 @@ const btags = $$('.btag');
 /* ── HSCROLL ── */
 const hs = $('#services'), hsPin = $('#hsPin'), hsTrack = $('#hsTrack'), hsBar = $('#hsBar');
 function hsSetHeight(){
-  if(reduced){ hs.style.height='auto'; return; }
+  if(reduced || isMobile){ hs.style.height='auto'; hsTrack.style.transform=''; return; }
   const scrollLen = hsTrack.scrollWidth - innerWidth + 200;
   hs.style.height = (innerHeight + scrollLen) + 'px';
 }
@@ -1908,10 +1945,17 @@ function tick(){
   const docH = document.documentElement.scrollHeight - vh;
   sBar.style.width = clamp(y/docH*100,0,100) + '%';
 
-  // nav
+  // nav — 작은 스크롤 흔들림(모바일 관성/바운스)에 반응하지 않도록 임계값 적용
   if(y > 80) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
-  if(y > lastY && y > 400) nav.classList.add('hidden'); else nav.classList.remove('hidden');
-  lastY = y;
+  const dy = y - lastY;
+  if(y <= 400){
+    nav.classList.remove('hidden');
+    lastY = y;
+  } else if(Math.abs(dy) > 6){
+    if(dy > 0) nav.classList.add('hidden');
+    else nav.classList.remove('hidden');
+    lastY = y;
+  }
 
   // hero parallax (mouse + scroll)
   if(y < vh * 1.2 && !reduced){
@@ -1986,8 +2030,8 @@ function tick(){
     }
   }
 
-  // hscroll
-  if(!reduced){
+  // hscroll (데스크톱에서만 세로 스크롤을 가로 이동으로 변환 — 모바일은 네이티브 스와이프 사용)
+  if(!reduced && !isMobile){
     const hr = hs.getBoundingClientRect();
     const htotal = hs.offsetHeight - vh;
     if(hr.top < 0 && hr.bottom > vh){
